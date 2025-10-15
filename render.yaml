@@ -1,0 +1,17 @@
+
+services:
+  - type: web
+    name: ytmp3-telegram-bot-gunicorn
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn server:app -w 1 -k gthread -b 0.0.0.0:$PORT"
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: TOKEN
+        sync: false
+      - key: YT_COOKIES_B64
+        sync: false
+      - key: DOWNLOAD_DIR
+        value: downloads
