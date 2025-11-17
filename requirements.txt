@@ -1,1 +1,3 @@
-python-telegram-bot==20.3\nyt-dlp\nFlask\n
+python-telegram-bot==20.3
+yt-dlp
+Flask
